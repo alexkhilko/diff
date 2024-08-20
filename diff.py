@@ -5,6 +5,7 @@ def get_lcs(s1: str, s2: str) -> str:
     """
     Initial implementation that returns longest common subsequence
     between 2 strings.
+    Leave here as a simple demonstrations of an algorithm that is used.
     """
     ROWS, COLUMNS = len(s2), len(s1)
     if ROWS == 0 or COLUMNS == 0:
