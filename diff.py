@@ -24,9 +24,7 @@ def _get_lcs_indexes(lines1: list[str], lines2: list[str]) -> list[tuple[int, in
     ROWS, COLUMNS = len(lines2), len(lines1)
     if ROWS == 0 or COLUMNS == 0:
         return []
-    # stores list of indexes of lines that are common between 2 lists (lines1, lines2)
-    # lcs[i, j] represents list of common subsequence indexes
-    # between lines1[:i] and lines2[:j]
+    # lcs[i, j] represents list of common subsequence line indexes between lines1[:i] and lines2[:j]
     lcs: list[list[list[tuple[int, int]]]] = [[[] for _ in range(COLUMNS + 1)] for _ in range(ROWS + 1)]
     for row in range(1, ROWS + 1):
         for col in range(1, COLUMNS + 1):
