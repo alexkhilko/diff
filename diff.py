@@ -1,3 +1,6 @@
+import argparse
+
+
 def get_lcs(s1, s2):
     ROWS, COLUMNS = len(s2), len(s1)
     if ROWS == 0 or COLUMNS == 0:
@@ -56,3 +59,19 @@ def print_diff(s1: list[str], s2: list[str]) -> None:
     print("---")
     for s in s2_diff:
         print(f"> {s}")
+
+
+def read_file(filepath: str) -> list[str]:
+    lines = []
+    with open(filepath, "r", encoding="latin-1") as file_:
+        for line in file_:
+            lines.append(line.strip())
+    return lines
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(prog='diff', description='Calculated difference between 2 files.',)
+    parser.add_argument('file1')
+    parser.add_argument('file2')
+    args = parser.parse_args()
+    print_diff(read_file(args.file1), read_file(args.file2))
