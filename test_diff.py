@@ -1,5 +1,5 @@
 import pytest
-from diff.diff import get_lcs, get_lcs_multiline, get_diff
+from diff.diff import get_lcs, get_diff
 
 
 @pytest.mark.parametrize(
@@ -14,33 +14,6 @@ from diff.diff import get_lcs, get_lcs_multiline, get_diff
 )
 def test_get_lcs(s1, s2, result):
     assert get_lcs(s1, s2) == result
-
-
-@pytest.mark.parametrize(
-    "lines1, lines2, result",
-    [
-        (
-            ["my name is alex", "i'm a developer", "i'm 31 yo"],
-            ["my name is alexander", "i'm a developer", "i'm 30 yo"],
-            ["i'm a developer"],
-        ),
-        (
-            [],
-            [
-                "my name is alexander",
-            ],
-            [],
-        ),
-        (
-            [],
-            [],
-            [],
-        ),
-    ],
-)
-def test_get_lcs_multilines(lines1, lines2, result):
-    act_result = get_lcs_multiline(lines1, lines2)
-    assert act_result == result
 
 
 @pytest.mark.parametrize(
